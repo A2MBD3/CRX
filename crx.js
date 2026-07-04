@@ -178,7 +178,7 @@
     // Telegram bar
     const tgBar = document.createElement("a");
     tgBar.id = "tg-bar";
-    tgBar.href = "https://t.me/teamcrx";
+    tgBar.href = "https://t.me/HQcrx";
     tgBar.target = "_blank";
     tgBar.rel = "noopener";
     tgBar.innerHTML = `<span class="tg-pulse"></span> ${SVG.telegram} Join Our Telegram Community`;
@@ -192,7 +192,7 @@
         <div class="nav-logo">TEAM<span class="logo-dot"></span>CRX</div>
         <ul class="nav-links">
           <li><a href="#members">Members</a></li>
-          <li><a href="https://t.me/teamcrx" target="_blank" rel="noopener">Contact</a></li>
+          <li><a href="https://t.me/HQcrx" target="_blank" rel="noopener">Contact</a></li>
         </ul>
       </nav>
       <section id="crx-hero">
@@ -200,7 +200,7 @@
         <h1 class="hero-title">Building the <span class="gradient-text">future</span>,<br>one commit at a time</h1>
         <p class="hero-desc">A community of developers collaborating, learning, and shipping impactful projects together.</p>
         <div class="hero-buttons">
-          <a href="https://t.me/teamcrx" target="_blank" rel="noopener" class="btn btn-primary">${SVG.telegram} Join Telegram</a>
+          <a href="https://t.me/HQcrx" target="_blank" rel="noopener" class="btn btn-primary">${SVG.telegram} Join Telegram</a>
           <a href="https://github.com/TeamCRX" target="_blank" rel="noopener" class="btn btn-secondary">${SVG.github} GitHub</a>
         </div>
       </section>
