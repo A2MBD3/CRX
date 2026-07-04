@@ -61,7 +61,7 @@
       admin:    { accent: "#FF6B6B", glow: "rgba(255,107,107,0.35)", glass: "rgba(255,107,107,0.1)", border: "rgba(255,107,107,0.25)" },
       core:     { accent: "#6C5CE7", glow: "rgba(108,92,231,0.35)", glass: "rgba(108,92,231,0.1)", border: "rgba(108,92,231,0.25)" },
       dev:      { accent: "#4ECDC4", glow: "rgba(78,205,196,0.35)", glass: "rgba(78,205,196,0.1)", border: "rgba(78,205,196,0.25)" },
-      member:   { accent: "#4ECDC4", glow: "rgba(78,205,196,0.35)", glass: "rgba(78,205,196,0.1)", border: "rgba(78,205,196,0.25)" },
+      groupadmin:   { accent: "#4ECDC4", glow: "rgba(78,205,196,0.35)", glass: "rgba(78,205,196,0.1)", border: "rgba(78,205,196,0.25)" },
       beginner: { accent: "#A0A0B0", glow: "rgba(160,160,176,0.3)", glass: "rgba(160,160,176,0.08)", border: "rgba(160,160,176,0.2)" },
       newbie:   { accent: "#A0A0B0", glow: "rgba(160,160,176,0.3)", glass: "rgba(160,160,176,0.08)", border: "rgba(160,160,176,0.2)" },
     };
