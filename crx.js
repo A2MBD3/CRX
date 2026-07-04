@@ -1,7 +1,7 @@
 /* ============================================================
    TEAM CRX — crx.js
-   Clean Glassmorphism UI — Member Cards Only
-   Local hackers.json — No Remote Fetch
+   Clean Glassmorphism UI — Minimal
+   Local hackers.json
    ============================================================ */
 
 (function () {
@@ -70,10 +70,9 @@
 
   /* ── SVG ICONS ─────────────────────────────────────────── */
   const SVG = {
-    telegram: `<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.87 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>`,
-    github:  `<svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.776.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.216.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>`,
-    globe:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>`,
-    arrow:   `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9,4 13,8 9,12"/></svg>`,
+    telegram: `<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.87 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>`,
+    github:  `<svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.776.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.216.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>`,
+    globe:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>`,
     back:    `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="7,4 3,8 7,12"/></svg>`,
   };
 
@@ -98,9 +97,11 @@
     const levelLabel = (m.level || "member").toUpperCase();
     const deptLabel = m.department ? escapeHTML(m.department) : "";
 
+    // All 3 links: Telegram, GitHub, Website
     const links = [];
-    if (m.github) links.push(`<a class="card-link" href="${escapeHTML(m.github)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${SVG.github} GitHub</a>`);
-    if (m.website) links.push(`<a class="card-link" href="${escapeHTML(m.website)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${SVG.globe} Website</a>`);
+    if (m.telegram) links.push(`<a class="card-link" href="${escapeHTML(m.telegram)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Telegram">${SVG.telegram} TG</a>`);
+    if (m.github) links.push(`<a class="card-link" href="${escapeHTML(m.github)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="GitHub">${SVG.github} GitHub</a>`);
+    if (m.website) links.push(`<a class="card-link" href="${escapeHTML(m.website)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Website">${SVG.globe} Web</a>`);
 
     card.innerHTML = `
       <div class="card-shine"></div>
@@ -128,24 +129,22 @@
   /* ── BUILD MODAL CONTENT ───────────────────────────────── */
   function buildModalContent(m) {
     const colors = getLevelColors(m.level);
-
     const avatarContent = m.avatar
       ? `<img src="${escapeHTML(m.avatar)}" alt="${escapeHTML(m.name)}" onerror="this.parentElement.innerHTML='${getInitials(m.name)}'">`
       : getInitials(m.name);
-
     const displayUsername = m.username ? `@${escapeHTML(m.username.replace(/^@/, ""))}` : "";
     const levelLabel = (m.level || "member").toUpperCase();
     const deptLabel = m.department ? escapeHTML(m.department) : "";
 
     const linksHTML = [];
-    if (m.github) linksHTML.push(`<a class="modal-link modal-link-primary" href="${escapeHTML(m.github)}" target="_blank" rel="noopener" style="background:${colors.accent};box-shadow:0 4px 16px ${colors.glow};">${SVG.github} GitHub</a>`);
+    if (m.telegram) linksHTML.push(`<a class="modal-link modal-link-primary" href="${escapeHTML(m.telegram)}" target="_blank" rel="noopener" style="background:${colors.accent};box-shadow:0 4px 16px ${colors.glow};">${SVG.telegram} Telegram</a>`);
+    if (m.github) linksHTML.push(`<a class="modal-link modal-link-outline" href="${escapeHTML(m.github)}" target="_blank" rel="noopener">${SVG.github} GitHub</a>`);
     if (m.website) linksHTML.push(`<a class="modal-link modal-link-outline" href="${escapeHTML(m.website)}" target="_blank" rel="noopener">${SVG.globe} Website</a>`);
-    if (m.telegram) linksHTML.push(`<a class="modal-link modal-link-outline" href="${escapeHTML(m.telegram)}" target="_blank" rel="noopener">${SVG.telegram} Telegram</a>`);
 
     return `
       <button class="modal-back" id="crx-modal-back">${SVG.back} Back</button>
       <div class="modal-profile">
-        <div class="modal-avatar" style="background:linear-gradient(135deg, ${colors.accent}, ${colors.glow.replace('0.35','0.7')});">${avatarContent}</div>
+        <div class="modal-avatar" style="background:linear-gradient(135deg, ${colors.accent}, ${colors.accent}dd);">${avatarContent}</div>
         <div>
           <div class="modal-name">${escapeHTML(m.name)}</div>
           ${displayUsername ? `<div class="modal-username">${displayUsername}</div>` : ""}
@@ -162,7 +161,6 @@
 
   /* ── RENDER ────────────────────────────────────────────── */
   async function render() {
-    // Meta
     document.title = "Team CRX";
     const metaVP = document.querySelector("meta[name=viewport]") || document.createElement("meta");
     metaVP.name = "viewport";
@@ -175,7 +173,7 @@
     orbs.innerHTML = `<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>`;
     document.body.appendChild(orbs);
 
-    // Telegram bar
+    // Floating Telegram bar
     const tgBar = document.createElement("a");
     tgBar.id = "tg-bar";
     tgBar.href = "https://t.me/HQcrx";
@@ -184,31 +182,18 @@
     tgBar.innerHTML = `<span class="tg-pulse"></span> ${SVG.telegram} Join Our Telegram Community`;
     document.body.appendChild(tgBar);
 
-    // App
+    // App shell — no hero badge, no buttons, no nav links
     const app = document.createElement("div");
     app.id = "crx-app";
     app.innerHTML = `
-      <nav id="crx-nav">
-        <div class="nav-logo">TEAM<span class="logo-dot"></span>CRX</div>
-        <ul class="nav-links">
-          <li><a href="#members">Members</a></li>
-          <li><a href="https://t.me/HQcrx" target="_blank" rel="noopener">Contact</a></li>
-        </ul>
-      </nav>
       <section id="crx-hero">
-        <div class="hero-badge"><span class="hero-badge-dot"></span> Open Source Developer Collective</div>
-        <h1 class="hero-title">Building the <span class="gradient-text">future</span>,<br>one commit at a time</h1>
+        <h1 class="hero-title">TEAM<span class="gradient-text">CRX</span></h1>
         <p class="hero-desc">A community of developers collaborating, learning, and shipping impactful projects together.</p>
-        <div class="hero-buttons">
-          <a href="https://t.me/HQcrx" target="_blank" rel="noopener" class="btn btn-primary">${SVG.telegram} Join Telegram</a>
-          <a href="https://github.com/TeamCRX" target="_blank" rel="noopener" class="btn btn-secondary">${SVG.github} GitHub</a>
-        </div>
       </section>
       <section id="members">
         <div class="section-header">
           <div class="section-tag">Our Team</div>
-          <h2 class="section-title">Core Members</h2>
-          
+          <h2 class="section-title">Members</h2>
         </div>
         <div class="filter-container" id="filter-container"></div>
         <div id="crx-members">
@@ -222,7 +207,7 @@
       </section>
       <footer id="crx-footer">
         <div class="footer-logo">TEAM<span class="logo-dot"></span>CRX</div>
-        <div class="footer-copy">&copy; ${new Date().getFullYear()} Team CRX. All rights reserved.</div>
+        <div class="footer-copy">&copy; ${new Date().getFullYear()} Team CRX</div>
       </footer>
     `;
     document.body.appendChild(app);
@@ -251,11 +236,9 @@
         return;
       }
 
-      // Get unique levels & departments
       const levels = [...new Set(members.map(m => (m.level || "member").toLowerCase()))];
       const departments = [...new Set(members.map(m => m.department).filter(Boolean))];
 
-      // Build filters: by level, by department
       let filterHTML = `<button class="filter-chip active" data-filter="all">All</button>`;
       levels.forEach(l => {
         filterHTML += `<button class="filter-chip" data-filter="level-${l}">${l.toUpperCase()}</button>`;
@@ -311,7 +294,6 @@
         renderCards(chip.dataset.filter);
       });
 
-      // Keyframes
       if (!document.getElementById("crx-keyframes")) {
         const kf = document.createElement("style");
         kf.id = "crx-keyframes";
@@ -332,7 +314,6 @@
     }
   }
 
-  // Boot
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", render);
   } else {
