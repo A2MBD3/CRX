@@ -50,5 +50,18 @@
     "github": "",
     "website": "",
     "telegram": "https://t.me/shoriotullahmahfuz"
+  },
+  {
+    "id": "crx-005",
+    "name": "FF JOD 2X",
+    "username": "ff_jod_2x",
+    "department": "",
+    "level": "admin",
+    "bio": "",
+    "avatar": "image link",
+    "status": "active",
+    "github": "https://github.com/freefire-jod-2x",
+    "website": "https://freefire-jod-2x.github.io/ffjod2x/",
+    "telegram": "https://t.me/ff_jod_2x"
   }
 ]
