@@ -1,227 +1,141 @@
-// Complete website creation using JavaScript
-(function() {
- // Create stars background
- function createStars() {
-  const starsContainer = document.createElement('div');
-  starsContainer.className = 'stars-container';
-  
-  for (let i = 0; i < 150; i++) {
-   const star = document.createElement('div');
-   star.className = 'star';
-   const size = Math.random() * 3 + 1;
-   star.style.width = size + 'px';
-   star.style.height = size + 'px';
-   star.style.left = Math.random() * 100 + '%';
-   star.style.top = Math.random() * 100 + '%';
-   star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
-   star.style.setProperty('--delay', (Math.random() * 2) + 's');
-   starsContainer.appendChild(star);
-  }
-  
-  document.body.appendChild(starsContainer);
- }
- 
- // Create header with title
- function createHeader(siteInfo) {
-  const header = document.createElement('header');
-  header.className = 'header';
-  
-  const titleContainer = document.createElement('div');
-  titleContainer.className = 'title-container';
-  
-  const mainTitle = document.createElement('h1');
-  mainTitle.className = 'main-title';
-  mainTitle.textContent = siteInfo.title;
-  
-  const teamName = document.createElement('p');
-  teamName.className = 'team-name';
-  teamName.textContent = `by ${siteInfo.team}`;
-  
-  titleContainer.appendChild(mainTitle);
-  titleContainer.appendChild(teamName);
-  
-  // Profile section with spark connection
-  const profileSection = document.createElement('div');
-  profileSection.className = 'profile-section';
-  
-  // Nebula profile
-  const nebulaWrapper = document.createElement('div');
-  nebulaWrapper.className = 'profile-wrapper';
-  const nebulaPic = document.createElement('img');
-  nebulaPic.className = 'profile-pic';
-  nebulaPic.src = siteInfo.nebulaProfilePic;
-  nebulaPic.alt = 'Nebula Profile';
-  nebulaPic.onerror = function() {
-   this.src = 'https://via.placeholder.com/120x120/6c5ce7/ffffff?text=N';
-  };
-  nebulaWrapper.appendChild(nebulaPic);
-  
-  // Spark connection
-  const sparkConnection = document.createElement('div');
-  sparkConnection.className = 'spark-connection';
-  
-  const sparkLine = document.createElement('div');
-  sparkLine.className = 'spark-line';
-  
-  const sparkParticles = document.createElement('div');
-  sparkParticles.className = 'spark-particles';
-  
-  for (let i = 0; i < 8; i++) {
-   const particle = document.createElement('div');
-   particle.className = 'spark-particle';
-   sparkParticles.appendChild(particle);
-  }
-  
-  sparkConnection.appendChild(sparkLine);
-  sparkConnection.appendChild(sparkParticles);
-  
-  // CRX profile
-  const crxWrapper = document.createElement('div');
-  crxWrapper.className = 'profile-wrapper';
-  const crxPic = document.createElement('img');
-  crxPic.className = 'profile-pic';
-  crxPic.src = siteInfo.crxProfilePic;
-  crxPic.alt = 'CRX Profile';
-  crxPic.onerror = function() {
-   this.src = 'https://via.placeholder.com/120x120/a855f7/ffffff?text=C';
-  };
-  crxWrapper.appendChild(crxPic);
-  
-  profileSection.appendChild(nebulaWrapper);
-  profileSection.appendChild(sparkConnection);
-  profileSection.appendChild(crxWrapper);
-  
-  header.appendChild(titleContainer);
-  header.appendChild(profileSection);
-  
-  return header;
- }
- 
- // Create main content with cards
- function createMainContent(apps) {
-  const mainContainer = document.createElement('main');
-  mainContainer.className = 'main-container';
-  
-  const sectionTitle = document.createElement('h2');
-  sectionTitle.className = 'section-title';
-  sectionTitle.textContent = 'Supported Apps';
-  
-  const cardGrid = document.createElement('div');
-  cardGrid.className = 'card-grid';
-  
-  apps.forEach(app => {
-   const card = document.createElement('div');
-   card.className = 'app-card';
-   card.addEventListener('click', () => {
-    window.location.href = app.url;
-   });
-   
-   card.innerHTML = `
-                <div class="card-image-container">
-                    <img class="card-image" src="${app.image}" alt="${app.name}" 
-                         onerror="this.src='https://via.placeholder.com/400x200/1a1a2e/a855f7?text=${app.name}'">
-                    <div class="card-image-overlay"></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">${app.name}</h3>
-                    <p class="card-description">${app.description}</p>
-                </div>
-                <div class="card-footer">
-                    <span class="visit-text">Visit ${app.name}</span>
-                    <span class="arrow-icon">→</span>
-                </div>
+(async function() {
+    // Stars background
+    function stars() {
+        const c = document.createElement('div');
+        c.className = 'stars';
+        for (let i = 0; i < 120; i++) {
+            const s = document.createElement('div');
+            s.className = 'star';
+            s.style.cssText = `
+                width:${Math.random()*2+1}px;
+                height:${Math.random()*2+1}px;
+                left:${Math.random()*100}%;
+                top:${Math.random()*100}%;
+                --d:${Math.random()*3+2}s;
+                --dl:${Math.random()*2}s;
             `;
-   
-   cardGrid.appendChild(card);
-  });
-  
-  mainContainer.appendChild(sectionTitle);
-  mainContainer.appendChild(cardGrid);
-  
-  return mainContainer;
- }
- 
- // Create footer
- function createFooter() {
-  const footer = document.createElement('footer');
-  footer.className = 'footer';
-  footer.innerHTML = `
-            <p>&copy; ${new Date().getFullYear()} Nebula by Team CRX. All rights reserved.</p>
+            c.appendChild(s);
+        }
+        document.body.appendChild(c);
+    }
+
+    // Hero Section
+    function hero() {
+        const h = document.createElement('div');
+        h.className = 'hero';
+        h.innerHTML = `
+            <h1 class="hero-title">Nebula</h1>
+            <p class="hero-subtitle">by Team CRX</p>
+            <div class="profiles">
+                <div class="profile-frame">
+                    <img class="profile-pic" src="https://i.ibb.co.com/Q7n4TgVN/Screenshot-2025-04-24-12-26-53-75-572064f74b5b9a6096a08806362cd216.jpg" alt="N" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2270%22 height=%2270%22><rect fill=%22%237c3aed%22 width=%2270%22 height=%2270%22 rx=%2235%22/><text fill=%22white%22 font-size=%2230%22 x=%2235%22 y=%2245%22 text-anchor=%22middle%22>N</text></svg>'">
+                </div>
+                <div class="spark-line"></div>
+                <div class="profile-frame">
+                    <img class="profile-pic" src="https://i.ibb.co.com/bjNQYmLr/Screenshot-2025-01-18-21-39-00-38-572064f74b5b9a6096a08806362cd216.jpg" alt="C" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2270%22 height=%2270%22><rect fill=%22%2306b6d4%22 width=%2270%22 height=%2270%22 rx=%2235%22/><text fill=%22white%22 font-size=%2230%22 x=%2235%22 y=%2245%22 text-anchor=%22middle%22>C</text></svg>'">
+                </div>
+            </div>
         `;
-  return footer;
- }
- 
- // Show loading state
- function showLoading() {
-  const loadingDiv = document.createElement('div');
-  loadingDiv.className = 'loading';
-  loadingDiv.id = 'loading-state';
-  loadingDiv.innerHTML = `
-            <div class="loading-spinner"></div>
-            <p>Loading apps...</p>
+        return h;
+    }
+
+    // App Card
+    function card(app) {
+        const c = document.createElement('a');
+        c.className = 'app-card';
+        c.href = app.url || app.link || '#';
+        c.target = '_blank';
+        c.rel = 'noopener';
+        
+        const icon = app.icon || app.image || app.profile || `https://ui-avatars.com/api/?name=${app.name}&background=7c3aed&color=fff&size=84`;
+        const desc = app.description || app.desc || '';
+        const badge = app.status === 'active' ? '<span class="badge active">ACTIVE</span>' 
+                    : app.status === 'beta' ? '<span class="badge beta">BETA</span>' : '';
+        
+        c.innerHTML = `
+            <img class="app-icon" src="${icon}" alt="${app.name}" onerror="this.src='https://ui-avatars.com/api/?name=${app.name}&background=7c3aed&color=fff&size=84'">
+            <div class="app-info">
+                <div class="app-name">${app.name}${badge}</div>
+                ${desc ? `<div class="app-desc">${desc}</div>` : ''}
+            </div>
+            <span class="arrow">→</span>
         `;
-  document.body.appendChild(loadingDiv);
- }
- 
- // Hide loading state
- function hideLoading() {
-  const loadingDiv = document.getElementById('loading-state');
-  if (loadingDiv) {
-   loadingDiv.remove();
-  }
- }
- 
- // Show error state
- function showError(message) {
-  const errorDiv = document.createElement('div');
-  errorDiv.className = 'error-message';
-  errorDiv.textContent = message || 'Failed to load data. Please try again later.';
-  document.body.appendChild(errorDiv);
- }
- 
- // Initialize website
- async function initWebsite() {
-  createStars();
-  showLoading();
-  
-  try {
-   const response = await fetch('nebula.json');
-   if (!response.ok) {
-    throw new Error('Failed to fetch data');
-   }
-   
-   const data = await response.json();
-   
-   hideLoading();
-   
-   // Create and append all sections
-   const header = createHeader(data.siteInfo);
-   const mainContent = createMainContent(data.supportedApps);
-   const footer = createFooter();
-   
-   document.body.appendChild(header);
-   document.body.appendChild(mainContent);
-   document.body.appendChild(footer);
-   
-  } catch (error) {
-   hideLoading();
-   console.error('Error loading data:', error);
-   showError('Unable to load app data. Please check your connection and try again.');
-   
-   // Create minimal header even on error
-   const fallbackHeader = createHeader({
-    title: 'Nebula',
-    team: 'Team CRX',
-    nebulaProfilePic: 'https://via.placeholder.com/120x120/6c5ce7/ffffff?text=N',
-    crxProfilePic: 'https://via.placeholder.com/120x120/a855f7/ffffff?text=C'
-   });
-   document.body.appendChild(fallbackHeader);
-   
-   const footer = createFooter();
-   document.body.appendChild(footer);
-  }
- }
- 
- // Start the website
- initWebsite();
+        
+        return c;
+    }
+
+    // Apps Section
+    function appsSection(apps) {
+        const s = document.createElement('div');
+        s.innerHTML = '<h2 class="section-title">✦ Supported Apps ✦</h2>';
+        
+        const list = document.createElement('div');
+        list.className = 'apps-list';
+        
+        apps.forEach(app => list.appendChild(card(app)));
+        s.appendChild(list);
+        return s;
+    }
+
+    // Footer
+    function footer() {
+        const f = document.createElement('div');
+        f.className = 'footer';
+        f.textContent = `© ${new Date().getFullYear()} Nebula by Team CRX`;
+        return f;
+    }
+
+    // Loading
+    function loading() {
+        const l = document.createElement('div');
+        l.className = 'loading';
+        l.innerHTML = '<div class="spinner"></div><p>Loading apps...</p>';
+        return l;
+    }
+
+    // Error
+    function error(msg) {
+        const e = document.createElement('div');
+        e.className = 'error';
+        e.innerHTML = `<p>⚠️ ${msg}</p><button class="retry-btn" onclick="location.reload()">Retry</button>`;
+        return e;
+    }
+
+    // Init
+    async function init() {
+        stars();
+        
+        const container = document.createElement('div');
+        container.className = 'container';
+        document.body.appendChild(container);
+        
+        container.appendChild(hero());
+        
+        const loader = loading();
+        container.appendChild(loader);
+        
+        try {
+            const res = await fetch('nebula.json');
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            
+            const data = await res.json();
+            loader.remove();
+            
+            // Extract apps array
+            let apps = [];
+            if (Array.isArray(data)) apps = data;
+            else for (const k in data) if (Array.isArray(data[k])) { apps = data[k]; break; }
+            
+            if (!apps.length) throw new Error('No apps found');
+            
+            container.appendChild(appsSection(apps));
+        } catch (err) {
+            loader.remove();
+            container.appendChild(error(err.message));
+        }
+        
+        container.appendChild(footer());
+    }
+
+    init();
 })();
