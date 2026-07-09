@@ -1,0 +1,495 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6c5ce7;
+    --secondary: #a855f7;
+    --dark: #0a0a1a;
+    --darker: #050510;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --text: #e0e0e0;
+    --text-muted: #a0a0b0;
+    --glow: rgba(108, 92, 231, 0.5);
+    --spark: #00d4ff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--darker);
+    background-image: 
+        radial-gradient(ellipse at 50% 0%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Stars Background */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Header Section */
+.header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+}
+
+.title-container {
+    margin-bottom: 3rem;
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #a855f7 0%, #6c5ce7 40%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 3s ease-in-out infinite;
+    letter-spacing: 2px;
+}
+
+@keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5)); }
+    50% { filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.8)); }
+}
+
+.team-name {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+/* Profile Section with Electric Spark Connection */
+.profile-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    margin: 1rem 0 2rem;
+}
+
+.profile-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    box-shadow: 
+        0 0 20px var(--glow),
+        0 0 60px rgba(108, 92, 231, 0.3),
+        inset 0 0 20px rgba(108, 92, 231, 0.1);
+    object-fit: cover;
+    transition: all 0.5s ease;
+    animation: profilePulse 2s ease-in-out infinite;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+    box-shadow: 
+        0 0 30px rgba(0, 212, 255, 0.8),
+        0 0 80px rgba(108, 92, 231, 0.5);
+}
+
+@keyframes profilePulse {
+    0%, 100% { box-shadow: 0 0 20px var(--glow), 0 0 60px rgba(108, 92, 231, 0.3); }
+    50% { box-shadow: 0 0 35px rgba(0, 212, 255, 0.6), 0 0 80px rgba(108, 92, 231, 0.5); }
+}
+
+/* Electric Spark Connection */
+.spark-connection {
+    position: relative;
+    width: 150px;
+    height: 4px;
+    margin: 0 10px;
+}
+
+.spark-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        var(--primary) 0%, 
+        var(--spark) 30%, 
+        white 50%, 
+        var(--spark) 70%, 
+        var(--primary) 100%
+    );
+    transform: translateY(-50%);
+    border-radius: 2px;
+    animation: sparkFlow 1.5s ease-in-out infinite;
+    box-shadow: 
+        0 0 10px var(--spark),
+        0 0 20px var(--spark),
+        0 0 40px rgba(0, 212, 255, 0.6);
+}
+
+.spark-line::before,
+.spark-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--spark);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px var(--spark), 0 0 20px var(--spark);
+}
+
+.spark-line::before {
+    left: -2px;
+    animation: sparkDot 0.8s ease-in-out infinite;
+}
+
+.spark-line::after {
+    right: -2px;
+    animation: sparkDot 0.8s ease-in-out infinite 0.4s;
+}
+
+/* Spark Particles */
+.spark-particles {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    transform: translateY(-50%);
+    overflow: visible;
+}
+
+.spark-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: particleFloat 2s ease-in-out infinite;
+    opacity: 0;
+}
+
+.spark-particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.spark-particle:nth-child(2) { left: 25%; animation-delay: 0.3s; }
+.spark-particle:nth-child(3) { left: 40%; animation-delay: 0.6s; }
+.spark-particle:nth-child(4) { left: 55%; animation-delay: 0.9s; }
+.spark-particle:nth-child(5) { left: 70%; animation-delay: 1.2s; }
+.spark-particle:nth-child(6) { left: 85%; animation-delay: 1.5s; }
+.spark-particle:nth-child(7) { left: 50%; animation-delay: 0.15s; }
+.spark-particle:nth-child(8) { left: 35%; animation-delay: 0.75s; }
+
+@keyframes sparkFlow {
+    0%, 100% { 
+        opacity: 0.8;
+        filter: brightness(1);
+    }
+    50% { 
+        opacity: 1;
+        filter: brightness(1.5);
+    }
+}
+
+@keyframes sparkDot {
+    0%, 100% { 
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: translateY(-50%) scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(0) translateX(0);
+    }
+    20% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-15px) translateX(5px);
+    }
+}
+
+/* Main Content */
+.main-container {
+    position: relative;
+    z-index: 10;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #a855f7, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Card Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* App Card */
+.app-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.app-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, 
+        rgba(108, 92, 231, 0.2) 0%, 
+        rgba(0, 212, 255, 0.1) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(108, 92, 231, 0.3),
+        0 0 60px rgba(0, 212, 255, 0.1);
+}
+
+.app-card:hover::before {
+    opacity: 1;
+}
+
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.app-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.card-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, 
+        transparent 50%, 
+        rgba(10, 10, 26, 0.9) 100%
+    );
+}
+
+.card-content {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(135deg, #e0e0e0, #a0a0b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.app-card:hover .card-title {
+    background: linear-gradient(135deg, #a855f7, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-description {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.card-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.visit-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.arrow-icon {
+    color: var(--primary);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.app-card:hover .visit-text {
+    color: var(--spark);
+}
+
+.app-card:hover .arrow-icon {
+    color: var(--spark);
+    transform: translateX(5px);
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    padding: 4rem;
+    color: var(--text-muted);
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error-message {
+    text-align: center;
+    padding: 3rem;
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+/* Footer */
+.footer {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .spark-connection {
+        width: 80px;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+        padding: 0.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .spark-connection {
+        width: 50px;
+    }
+    
+    .header {
+        padding: 2rem 1rem 1rem;
+    }
+}
