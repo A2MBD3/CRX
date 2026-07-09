@@ -14,16 +14,16 @@
   },
   {
     "id": "crx-002",
-    "name": "Solo Vex",
-    "username": "soloXvex",
-    "department": "Backend Development",
-    "level": "dev",
-    "bio": "Learning backend development with Node.js. Passionate about databases and API design. Building scalable solutions.",
-    "avatar": "a/vex.jpeg",
-    "status": "inactive",
+    "name": "Mahfuz",
+    "username": "shoriotullahmahfuz",
+    "department": "Mobile Development",
+    "level": "moderator",
+    "bio": "Android rooting & bootloader unlocking specialist. Custom recovery (TWRP) & Magisk module expert. UI/UX designer.",
+    "avatar": "https://cdn5.telesco.pe/file/u9Khq3OEzyH2MaBjCFXQlCCQtjqoD0ZQJYIUrYf8TqUug0-fta9xnvT1r3elUuz2rsfirEE5YkZ_Xr3ArVEGxro0s9rmuyR065gyMaAAp3b1oeWrW8PJHrsBQONqb5dTRk2NUuHx-NqSrrvqz__uXZzluDPZ-yOIJHZXZM9axQ4vdKfDpFqzoNAoVSmxrqHyLBmUlvhZpofHj1-ug5VckDYP7zYQV926WyruRq9OpnKXjjnQJqYPHz91lgOB3pr1TpJ7eSvbh6i1x54CGZN_A8mwLz7BgzqlY3vKP-SsmwC5Wgs0yb7jyOh8-l4CfRo5HSYnCLhXKFX5nsExtHO65A.jpg",
+    "status": "active",
     "github": "",
     "website": "",
-    "telegram": "https://t.me/soloXvex"
+    "telegram": "https://t.me/shoriotullahmahfuz"
   },
   {
     "id": "crx-003",
@@ -40,16 +40,16 @@
   },
   {
     "id": "crx-004",
-    "name": "Mahfuz",
-    "username": "shoriotullahmahfuz",
-    "department": "Mobile Development",
-    "level": "moderator",
-    "bio": "Android rooting & bootloader unlocking specialist. Custom recovery (TWRP) & Magisk module expert. UI/UX designer.",
-    "avatar": "https://cdn5.telesco.pe/file/u9Khq3OEzyH2MaBjCFXQlCCQtjqoD0ZQJYIUrYf8TqUug0-fta9xnvT1r3elUuz2rsfirEE5YkZ_Xr3ArVEGxro0s9rmuyR065gyMaAAp3b1oeWrW8PJHrsBQONqb5dTRk2NUuHx-NqSrrvqz__uXZzluDPZ-yOIJHZXZM9axQ4vdKfDpFqzoNAoVSmxrqHyLBmUlvhZpofHj1-ug5VckDYP7zYQV926WyruRq9OpnKXjjnQJqYPHz91lgOB3pr1TpJ7eSvbh6i1x54CGZN_A8mwLz7BgzqlY3vKP-SsmwC5Wgs0yb7jyOh8-l4CfRo5HSYnCLhXKFX5nsExtHO65A.jpg",
-    "status": "active",
+    "name": "Solo Vex",
+    "username": "soloXvex",
+    "department": "Backend Development",
+    "level": "dev",
+    "bio": "Learning backend development with Node.js. Passionate about databases and API design. Building scalable solutions.",
+    "avatar": "a/vex.jpeg",
+    "status": "inactive",
     "github": "",
     "website": "",
-    "telegram": "https://t.me/shoriotullahmahfuz"
+    "telegram": "https://t.me/soloXvex"
   },
   {
     "id": "crx-005",

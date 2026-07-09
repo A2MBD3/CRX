@@ -149,7 +149,7 @@ body {
 #crx-hero {
   margin-bottom: 50px;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 0px;
 }
 
 .hero-title {
@@ -188,7 +188,7 @@ body {
 }
 
 .section-tag {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--accent-light);
   text-transform: uppercase;

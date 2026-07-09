@@ -193,8 +193,8 @@
       </section>
       <section id="members">
         <div class="section-header">
-          <div class="section-tag">Our Team</div>
-          <h2 class="section-title">Members</h2>
+          <div class="section-tag">Meet The Crew</div>
+          
         </div>
         <div class="filter-container" id="filter-container"></div>
         <div id="crx-members">
