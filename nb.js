@@ -47,7 +47,6 @@
         c.target = '_blank';
         c.rel = 'noopener';
         
-        // Use image from JSON, fallback to generated avatar
         const icon = app.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(app.name)}&background=7c3aed&color=fff&size=84&bold=true`;
         const desc = app.description || '';
         const badge = app.status === 'active' ? '<span class="badge active">ACTIVE</span>' :
@@ -83,6 +82,82 @@
         return s;
     }
     
+    // User Agent Box
+    function userAgentBox() {
+        const box = document.createElement('div');
+        box.className = 'ua-box';
+        
+        const ua = navigator.userAgent;
+        
+        // Parse browser and OS info
+        const info = parseUserAgent(ua);
+        
+        box.innerHTML = `
+            <div class="ua-header">
+                <span class="ua-icon">🔍</span>
+                <span class="ua-title">Your Device Info</span>
+            </div>
+            <div class="ua-details">
+                <div class="ua-row">
+                    <span class="ua-label">🖥️ Browser</span>
+                    <span class="ua-value">${info.browser}</span>
+                </div>
+                <div class="ua-row">
+                    <span class="ua-label">💿 OS</span>
+                    <span class="ua-value">${info.os}</span>
+                </div>
+                <div class="ua-row">
+                    <span class="ua-label">📱 Platform</span>
+                    <span class="ua-value">${info.platform}</span>
+                </div>
+            </div>
+            <div class="ua-full">
+                <span class="ua-label">📋 Full UA:</span>
+                <code class="ua-code">${ua}</code>
+            </div>
+        `;
+        
+        return box;
+    }
+    
+    // Parse User Agent
+    function parseUserAgent(ua) {
+        let browser = 'Unknown';
+        let os = 'Unknown';
+        let platform = 'Desktop';
+        
+        // Detect browser
+        if (ua.includes('Firefox')) {
+            browser = 'Firefox ' + (ua.match(/Firefox\/(\d+)/) || [])[1];
+        } else if (ua.includes('Edg')) {
+            browser = 'Edge ' + (ua.match(/Edg\/(\d+)/) || [])[1];
+        } else if (ua.includes('Chrome')) {
+            browser = 'Chrome ' + (ua.match(/Chrome\/(\d+)/) || [])[1];
+        } else if (ua.includes('Safari')) {
+            browser = 'Safari ' + (ua.match(/Version\/(\d+)/) || [])[1];
+        } else if (ua.includes('Opera') || ua.includes('OPR')) {
+            browser = 'Opera ' + (ua.match(/(?:Opera|OPR)\/(\d+)/) || [])[1];
+        }
+        
+        // Detect OS
+        if (ua.includes('Windows NT 10')) os = 'Windows 10/11';
+        else if (ua.includes('Windows NT 6.3')) os = 'Windows 8.1';
+        else if (ua.includes('Windows NT 6.2')) os = 'Windows 8';
+        else if (ua.includes('Windows NT 6.1')) os = 'Windows 7';
+        else if (ua.includes('Windows')) os = 'Windows';
+        else if (ua.includes('Mac OS X')) os = 'macOS';
+        else if (ua.includes('Android')) os = 'Android ' + (ua.match(/Android\s([\d.]+)/) || [])[1];
+        else if (ua.includes('iPhone') || ua.includes('iPad')) os = 'iOS';
+        else if (ua.includes('Linux')) os = 'Linux';
+        
+        // Detect platform
+        if (ua.includes('Mobile')) platform = 'Mobile';
+        else if (ua.includes('Tablet') || ua.includes('iPad')) platform = 'Tablet';
+        else platform = 'Desktop';
+        
+        return { browser, os, platform };
+    }
+    
     // Footer
     function footer() {
         const f = document.createElement('div');
@@ -115,6 +190,14 @@
         container.className = 'container';
         document.body.appendChild(container);
         
+        // Add hero immediately with default values
+        container.appendChild(hero({
+            title: 'Nebula',
+            team: 'Team CRX',
+            nebulaProfilePic: 'https://a2mbd3.github.io/CRX/a/nebula.png',
+            crxProfilePic: 'https://a2mbd3.github.io/CRX/a/crx.jpg'
+        }));
+        
         const loader = loading();
         container.appendChild(loader);
         
@@ -125,17 +208,11 @@
             const data = await res.json();
             loader.remove();
             
-            // Add hero with site info from JSON
+            // Update hero with data from JSON
             if (data.siteInfo) {
-                container.appendChild(hero(data.siteInfo));
-            } else {
-                // Fallback hero with default values
-                container.appendChild(hero({
-                    title: 'Nebula',
-                    team: 'Team CRX',
-                    nebulaProfilePic: 'https://a2mbd3.github.io/CRX/a/nebula.png',
-                    crxProfilePic: 'https://a2mbd3.github.io/CRX/a/crx.jpg'
-                }));
+                const existingHero = container.querySelector('.hero');
+                if (existingHero) existingHero.remove();
+                container.insertBefore(hero(data.siteInfo), container.firstChild);
             }
             
             // Add apps section
@@ -151,18 +228,13 @@
         } catch (err) {
             loader.remove();
             console.error('Error loading nebula.json:', err);
-            
-            // Fallback hero even on error
-            container.appendChild(hero({
-                title: 'Nebula',
-                team: 'Team CRX',
-                nebulaProfilePic: 'https://a2mbd3.github.io/CRX/a/nebula.png',
-                crxProfilePic: 'https://a2mbd3.github.io/CRX/a/crx.jpg'
-            }));
-            
             container.appendChild(error(err.message || 'Failed to load data'));
         }
         
+        // Add User Agent Box
+        container.appendChild(userAgentBox());
+        
+        // Add Footer
         container.appendChild(footer());
     }
     
