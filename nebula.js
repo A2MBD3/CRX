@@ -160,11 +160,11 @@
     
     // Footer
     function footer() {
-        const f = document.createElement('div');
-        f.className = 'footer';
-        f.textContent = `© ${new Date().getFullYear()} Nebula by Team CRX`;
-        return f;
-    }
+    const f = document.createElement('div');
+    f.className = 'footer';
+    f.innerHTML = `© ${new Date().getFullYear()} <a href="https://crxx.netlify.app"> Team CRX </a>`;
+    return f;
+}
     
     // Loading
     function loading() {
