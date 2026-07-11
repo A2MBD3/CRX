@@ -40,17 +40,18 @@
   },
   {
     "id": "crx-004",
-    "name": "Solo Vex",
-    "username": "soloXvex",
-    "department": "Backend Development",
+    "name": "DFox404",
+    "username": "DFox404",
+    "department": "Developer",
     "level": "dev",
-    "bio": "Learning backend development with Node.js. Passionate about databases and API design. Building scalable solutions.",
-    "avatar": "https://a2mbd3.github.io/CRX/a/vex.jpeg",
-    "status": "inactive",
+    "bio": "404",
+    "avatar": "https://a2mbd3.github.io/CRX/a/404.png",
+    "status": "active",
     "github": "",
     "website": "",
-    "telegram": "https://t.me/soloXvex"
-  },
+    "telegram": "https://t.me/DFox404"
+  }
+  ,
   {
     "id": "crx-005",
     "name": "FF JOD 2X",
@@ -76,5 +77,18 @@
   "github": "https://github.com/INGRANTED",
   "website": "",
   "telegram": "https://t.me/alamin9991"
-}
+},
+{
+    "id": "crx-007",
+    "name": "Solo Vex",
+    "username": "soloXvex",
+    "department": "Backend Development",
+    "level": "dev",
+    "bio": "Learning backend development with Node.js. Passionate about databases and API design. Building scalable solutions.",
+    "avatar": "https://a2mbd3.github.io/CRX/a/vex.jpeg",
+    "status": "inactive",
+    "github": "",
+    "website": "",
+    "telegram": "https://t.me/soloXvex"
+  }
 ]
