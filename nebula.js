@@ -39,7 +39,7 @@
 
             <div class="scan-line"></div>
 
-            <div class="hud-label">// UNIVERSE BYPASS ENGINE //</div>
+            <div class="hud-label">// LIFE IS NOT FOR ADS //</div>
         `;
         return s;
     }
@@ -126,7 +126,7 @@
         container.appendChild(loader);
 
         try {
-            const res = await fetch('./nebula.json');
+            const res = await fetch('https://a2mbd3.github.io/CRX/nebula.json');
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const data = await res.json();
             loader.remove();
