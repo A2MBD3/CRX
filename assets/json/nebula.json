@@ -12,7 +12,7 @@
         {
             "id": 1,
             "name": "Aincrad",
-            "description": "Instant Bypass • 0 Sec",
+            "description": "Working Bypass • 70 Sec",
             "status": "active",
             "image": "https://a2mbd3.github.io/CRX/a/ain.jpg",
             "url": "https://aincradmods.com/getkey"
@@ -27,6 +27,14 @@
         },
         {
             "id": 3,
+            "name": "Netwing VPN",
+            "description": "Instant Auto Bypass",
+            "status": "active",
+            "image": "https://mjonaydyt.github.io/ninjapingupdate/assets/logo.png",
+            "url": "https://crxx.pages.dev/netwing.html"
+        },
+        {
+            "id": 4,
             "name": "Request New Bypass",
             "description": "Request developer to add bypass for ads site",
             "status": "",
