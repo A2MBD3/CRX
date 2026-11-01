@@ -7,7 +7,7 @@
   "use strict";
 
   async function fetchMembers() {
-    const response = await fetch("https://a2mbd3.github.io/CRX/hackers.json");
+    const response = await fetch("assets/json/hackers.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     if (Array.isArray(data)) return data;
