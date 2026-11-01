@@ -39,34 +39,7 @@
     "telegram": "https://t.me/NAHIYAN6969"
   },
   {
-    "id": "crx-004",
-    "name": "DFox404",
-    "username": "DFox404",
-    "department": "Developer",
-    "level": "dev",
-    "bio": "404",
-    "avatar": "https://a2mbd3.github.io/CRX/a/404.png",
-    "status": "active",
-    "github": "",
-    "website": "",
-    "telegram": "https://t.me/DFox404"
-  }
-  ,
-  {
-    "id": "crx-005",
-    "name": "FF JOD 2X",
-    "username": "ff_jod_2x",
-    "department": "Game Development",
-    "level": "moderator",
-    "bio": "Gaming enthusiast and community moderator. Bringing gamers and developers together.",
-    "avatar": "https://a2mbd3.github.io/CRX/a/2x.jpg",
-    "status": "active",
-    "github": "https://github.com/freefire-jod-2x",
-    "website": "",
-    "telegram": "https://t.me/ff_jod_2x"
-  },
-  {
-   "id": "crx-006",
+   "id": "crx-004",
   "name": "AL-AMIN OF BLACK FOX BD",
   "username": "@alamin9991",
   "department": "Reverser",
@@ -77,18 +50,5 @@
   "github": "https://github.com/INGRANTED",
   "website": "",
   "telegram": "https://t.me/alamin9991"
-},
-{
-    "id": "crx-007",
-    "name": "GUCCI",
-    "username": "GUCCI8240",
-    "department": "Sells Development",
-    "level": "mod",
-    "bio": "",
-    "avatar": "https://cdn.phototourl.com/free/2026-08-13-b5b75412-7ba7-4d86-a2cd-adf379940a40.jpg",
-    "status": "active",
-    "github": "",
-    "website": "",
-    "telegram": "https://t.me/GUCCI8240"
-  }
+}
 ]
